@@ -403,39 +403,34 @@ class _TelaNovoProfissionalState extends State<TelaNovoProfissional> {
           ),
         ),
         const SizedBox(height: 6),
-        SizedBox(
-          height: 41,
-          child: TextFormField(
-            controller: controller,
-            keyboardType: teclado,
-            validator: validador,
-            style: const TextStyle(color: azulEscuro, fontSize: 11),
-            decoration: InputDecoration(
-              hintText: dica,
-              helperText: ' ',
-              helperStyle: const TextStyle(fontSize: 11),
-              hintStyle: const TextStyle(color: azulTexto, fontSize: 11),
-              prefixIcon: Icon(icone, color: azulTexto, size: 15),
-              prefixIconConstraints: const BoxConstraints(minWidth: 30),
-              errorMaxLines: 2,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 10,
-                vertical: 10,
-              ),
-              filled: true,
-              fillColor: Colors.white,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(9),
-                borderSide: const BorderSide(color: borda),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(9),
-                borderSide: const BorderSide(color: borda),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(9),
-                borderSide: const BorderSide(color: verde),
-              ),
+        TextFormField(
+          controller: controller,
+          keyboardType: teclado,
+          validator: validador,
+          style: const TextStyle(color: azulEscuro, fontSize: 11),
+          decoration: InputDecoration(
+            hintText: dica,
+            hintStyle: const TextStyle(color: azulTexto, fontSize: 11),
+            prefixIcon: Icon(icone, color: azulTexto, size: 15),
+            prefixIconConstraints: const BoxConstraints(minWidth: 30),
+            errorMaxLines: 2,
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 10,
+            ),
+            filled: true,
+            fillColor: Colors.white,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(9),
+              borderSide: const BorderSide(color: borda),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(9),
+              borderSide: const BorderSide(color: borda),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(9),
+              borderSide: const BorderSide(color: verde),
             ),
           ),
         ),

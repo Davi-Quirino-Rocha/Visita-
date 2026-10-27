@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'tela_novo_profissional.dart';
 
+import 'tela_agenda_equipe.dart';
+import 'tela_familias.dart';
+
 class TelaHomeCoordenador extends StatelessWidget {
   const TelaHomeCoordenador({super.key});
 
@@ -173,7 +176,11 @@ class TelaHomeCoordenador extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {
-                            _mensagem(context, 'Agenda completa');
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const TelaAgendaEquipe(),
+                              ),
+                            );
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
@@ -231,12 +238,24 @@ class TelaHomeCoordenador extends StatelessWidget {
                   _ItemMenuHome(
                     icone: Icons.calendar_month_outlined,
                     titulo: 'Agenda',
-                    aoTocar: () => _mensagem(context, 'Agenda'),
+                    aoTocar: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const TelaAgendaEquipe(),
+                        ),
+                      );
+                    },
                   ),
                   _ItemMenuHome(
                     icone: Icons.people_outline,
                     titulo: 'Famílias',
-                    aoTocar: () => _mensagem(context, 'Famílias'),
+                    aoTocar: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const TelaFamilias(),
+                        ),
+                      );
+                    },
                   ),
                   _ItemMenuHome(
                     icone: Icons.groups_outlined,

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'tela_recuperar_senha.dart';
+
 import 'tela_home_coordenador.dart';
+
+import 'tela_home_tecnico.dart';
 
 class TelaLogin extends StatefulWidget {
   const TelaLogin({super.key});
@@ -21,6 +24,25 @@ class _TelaLoginState extends State<TelaLogin> {
     _emailController.dispose();
     _senhaController.dispose();
     super.dispose();
+  }
+
+  void _entrar() {
+    final email = _emailController.text.trim().toLowerCase();
+    final senha = _senhaController.text;
+
+    if (email == 'coordenador@visita.com' && senha == '123456') {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const TelaHomeCoordenador()),
+      );
+    } else if (email == 'tecnico@visita.com' && senha == '123456') {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const TelaHomeTecnico()),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('E-mail ou senha incorretos.')),
+      );
+    }
   }
 
   @override
@@ -218,13 +240,7 @@ class _TelaLoginState extends State<TelaLogin> {
                       width: double.infinity,
                       height: 48,
                       child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => TelaHomeCoordenador(),
-                            ),
-                          );
-                        },
+                        onPressed: _entrar,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: verde,
                           foregroundColor: Colors.white,
