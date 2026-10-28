@@ -67,21 +67,42 @@ class TelaPerfilCoordenador extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          const CircleAvatar(
-                            radius: 22,
-                            backgroundColor: Color(0xFF3A7BD5),
-                            child: Text(
-                              'RS',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const TelaPerfilCoordenador(
+                                        nome: 'Camila Souza',
+                                        matricula: '12345-6',
+                                        unidade: 'CRAS Gama',
+                                        funcao: 'Técnica de referência',
+                                        email: 'camila.souza@gmail.com',
+                                        telefone: '(61) 98324-9342',
+                                        visitas: '45',
+                                        acompanhamentos: '12',
+                                      ),
+                                ),
+                              );
+                            },
+                            child: const CircleAvatar(
+                              radius: 16,
+                              backgroundColor: Color(0xFF092D55),
+                              child: Text(
+                                'CS',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ),
                           const SizedBox(height: 10),
-                          Text(
-                            nome,
-                            style: const TextStyle(
+                          const Text(
+                            'Camila Souza',
+                            style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
@@ -104,15 +125,11 @@ class TelaPerfilCoordenador extends StatelessWidget {
                     const SizedBox(height: 8),
 
                     _card([
-                      _linha(Icons.badge_outlined, 'Matrícula:', '12345-6'),
+                      _linha(Icons.badge_outlined, 'Matrícula:', matricula),
                       _divider(),
-                      _linha(
-                        Icons.location_on_outlined,
-                        'Unidade:',
-                        'CRAS Gama',
-                      ),
+                      _linha(Icons.location_on_outlined, 'Unidade:', unidade),
                       _divider(),
-                      _linha(Icons.work_outline, 'Função:', 'Coordenador'),
+                      _linha(Icons.work_outline, 'Função:', funcao),
                     ]),
 
                     const SizedBox(height: 16),
@@ -128,13 +145,9 @@ class TelaPerfilCoordenador extends StatelessWidget {
                     const SizedBox(height: 8),
 
                     _card([
-                      _linha(
-                        Icons.email_outlined,
-                        '',
-                        'renato.silva@instituicao.gov.br',
-                      ),
+                      _linha(Icons.email_outlined, '', email),
                       _divider(),
-                      _linha(Icons.phone_outlined, '', '(61) 98324-9342'),
+                      _linha(Icons.phone_outlined, '', telefone),
                     ]),
 
                     const SizedBox(height: 16),

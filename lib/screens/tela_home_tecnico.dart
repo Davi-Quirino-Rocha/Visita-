@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'tela_perfil_coordenador.dart';
+
 class TelaHomeTecnico extends StatelessWidget {
   const TelaHomeTecnico({super.key});
 
@@ -65,12 +67,36 @@ class TelaHomeTecnico extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 5),
-                        const CircleAvatar(
-                          radius: 16,
-                          backgroundColor: Color(0xFF092D55),
-                          child: Text(
-                            'CS',
-                            style: TextStyle(color: Colors.white, fontSize: 10),
+
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const TelaPerfilCoordenador(
+                                      nome: 'Camila Souza',
+                                      matricula: '12345-6',
+                                      unidade: 'CRAS Gama',
+                                      funcao: 'Técnica de referência',
+                                      email: 'camila.souza@gmail.com',
+                                      telefone: '(61) 98324-9342',
+                                      visitas: '45',
+                                      acompanhamentos: '12',
+                                    ),
+                              ),
+                            );
+                          },
+                          child: const CircleAvatar(
+                            radius: 16,
+                            backgroundColor: Color(0xFF092D55),
+                            child: Text(
+                              'CS',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                              ),
+                            ),
                           ),
                         ),
                       ],
