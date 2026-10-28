@@ -5,6 +5,8 @@ import 'tela_novo_profissional.dart';
 import 'tela_agenda_equipe.dart';
 import 'tela_familias.dart';
 
+import 'tela_equipe.dart';
+
 class TelaHomeCoordenador extends StatelessWidget {
   const TelaHomeCoordenador({super.key});
 
@@ -260,7 +262,13 @@ class TelaHomeCoordenador extends StatelessWidget {
                   _ItemMenuHome(
                     icone: Icons.groups_outlined,
                     titulo: 'Equipe',
-                    aoTocar: () => _mensagem(context, 'Equipe'),
+                    aoTocar: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const TelaEquipe(),
+                        ),
+                      );
+                    },
                   ),
                   _ItemMenuHome(
                     icone: Icons.more_horiz,
