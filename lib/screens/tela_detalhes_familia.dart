@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'tela_informacoes_visita.dart';
+import 'tela_nova_visita.dart';
 
 class TelaDetalhesFamilia extends StatelessWidget {
   final String nome;
@@ -200,8 +200,10 @@ class TelaDetalhesFamilia extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  const TelaInformacoesVisita(),
+                              builder: (context) => TelaNovaVisita(
+                                nomeFamilia: nome,
+                                enderecoFamilia: endereco,
+                              ),
                             ),
                           );
                         },

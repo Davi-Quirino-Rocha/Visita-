@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'tela_perfil_coordenador.dart';
 
+import 'tela_agenda_tecnico.dart';
+
 class TelaHomeTecnico extends StatelessWidget {
   const TelaHomeTecnico({super.key});
 
@@ -241,8 +243,14 @@ class TelaHomeTecnico extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () =>
-                              _mensagem(context, 'Agenda completa'),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const TelaAgendaTecnico(),
+                              ),
+                            );
+                          },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                             minimumSize: const Size(40, 28),
@@ -297,7 +305,14 @@ class TelaHomeTecnico extends StatelessWidget {
                   _MenuTecnico(
                     icone: Icons.calendar_month_outlined,
                     titulo: 'Agenda',
-                    aoTocar: () => _mensagem(context, 'Agenda'),
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TelaAgendaTecnico(),
+                        ),
+                      );
+                    },
                   ),
                   _MenuTecnico(
                     icone: Icons.people_outline,
