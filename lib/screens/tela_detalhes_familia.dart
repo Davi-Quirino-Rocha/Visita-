@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'tela_nova_visita.dart';
 
+import 'tela_informacoes_visita.dart';
+
 class TelaDetalhesFamilia extends StatelessWidget {
   final String nome;
   final String endereco;
+  final bool modoTecnico;
 
   const TelaDetalhesFamilia({
     super.key,
     this.nome = 'Família Oliveira',
     this.endereco = 'Jardim Céu Azul - casa 14',
+    this.modoTecnico = false,
   });
 
   static const verde = Color(0xFF008577);
@@ -198,13 +202,18 @@ class TelaDetalhesFamilia extends StatelessWidget {
                       height: 44,
                       child: ElevatedButton(
                         onPressed: () {
+                          final Widget destino = modoTecnico
+                              ? TelaInformacoesVisita(
+                                  nomeFamilia: nome,
+                                  enderecoFamilia: endereco,
+                                )
+                              : TelaNovaVisita(
+                                  nomeFamilia: nome,
+                                  enderecoFamilia: endereco,
+                                );
+
                           Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => TelaNovaVisita(
-                                nomeFamilia: nome,
-                                enderecoFamilia: endereco,
-                              ),
-                            ),
+                            MaterialPageRoute(builder: (context) => destino),
                           );
                         },
                         style: ElevatedButton.styleFrom(

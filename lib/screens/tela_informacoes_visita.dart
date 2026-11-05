@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 import 'tela_historico_visitas.dart';
 
 class TelaInformacoesVisita extends StatelessWidget {
-  const TelaInformacoesVisita({super.key});
+  final String nomeFamilia;
+  final String enderecoFamilia;
+
+  const TelaInformacoesVisita({
+    super.key,
+    this.nomeFamilia = 'Família Oliveira',
+    this.enderecoFamilia = 'Quadra 08, Casa 14 · Jardim Céu Azul',
+  });
 
   static const verde = Color(0xFF008577);
   static const azulEscuro = Color(0xFF142A40);

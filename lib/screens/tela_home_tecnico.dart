@@ -4,6 +4,8 @@ import 'tela_perfil_coordenador.dart';
 
 import 'tela_agenda_tecnico.dart';
 
+import 'tela_familias.dart';
+
 class TelaHomeTecnico extends StatelessWidget {
   const TelaHomeTecnico({super.key});
 
@@ -297,10 +299,17 @@ class TelaHomeTecnico extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   _MenuTecnico(
-                    icone: Icons.home_outlined,
-                    titulo: 'Início',
-                    selecionado: true,
-                    aoTocar: () {},
+                    icone: Icons.people_outline,
+                    titulo: 'Famílias',
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const TelaFamilias(modoTecnico: true),
+                        ),
+                      );
+                    },
                   ),
                   _MenuTecnico(
                     icone: Icons.calendar_month_outlined,

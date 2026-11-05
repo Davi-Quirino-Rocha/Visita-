@@ -4,8 +4,12 @@ import 'tela_agenda_equipe.dart';
 
 import 'tela_detalhes_familia.dart';
 
+import 'tela_informacoes_visita.dart';
+
 class TelaFamilias extends StatefulWidget {
-  const TelaFamilias({super.key});
+  final bool modoTecnico;
+
+  const TelaFamilias({super.key, this.modoTecnico = false});
 
   @override
   State<TelaFamilias> createState() => _TelaFamiliasState();
@@ -157,14 +161,25 @@ class _TelaFamiliasState extends State<TelaFamilias> {
                             nome: familia['nome']!,
                             endereco: familia['endereco']!,
                             aoTocar: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => TelaDetalhesFamilia(
-                                    nome: familia['nome']!,
-                                    endereco: familia['endereco']!,
+                              if (widget.modoTecnico) {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => TelaInformacoesVisita(
+                                      nomeFamilia: familia['nome']!,
+                                      enderecoFamilia: familia['endereco']!,
+                                    ),
                                   ),
-                                ),
-                              );
+                                );
+                              } else {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => TelaDetalhesFamilia(
+                                      nome: familia['nome']!,
+                                      endereco: familia['endereco']!,
+                                    ),
+                                  ),
+                                );
+                              }
                             },
                           ),
                         ),

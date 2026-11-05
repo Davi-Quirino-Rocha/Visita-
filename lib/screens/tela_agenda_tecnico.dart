@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'tela_nova_visita.dart';
 
+import 'tela_detalhe_visita_tecnico.dart';
+
 const Color verde = Color(0xFF008577);
 const Color azulEscuro = Color(0xFF142A40);
 const Color azulTexto = Color(0xFF647895);
@@ -328,114 +330,116 @@ class _CartaoVisita extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: borda),
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.035),
-            blurRadius: 8,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // HORÁRIO E STATUS
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                horario,
-                style: const TextStyle(
-                  color: azulEscuro,
-                  fontSize: 10,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFE4F5EF),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Text(
-                  'Confirmada',
-                  style: TextStyle(
-                    color: verde,
-                    fontSize: 8,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 8),
-
-          // NOME DA FAMÍLIA
-          Text(
-            familia,
-            style: const TextStyle(
-              color: azulEscuro,
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TelaDetalhesFamilia(
+              nome: familia,
+              endereco: endereco,
+              modoTecnico: true,
             ),
           ),
-
-          const SizedBox(height: 5),
-
-          // ENDEREÇO
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Icon(
-                Icons.location_on_outlined,
-                color: azulTexto,
-                size: 13,
-              ),
-
-              const SizedBox(width: 3),
-
-              Expanded(
-                child: Text(
-                  endereco,
-                  style: const TextStyle(color: azulTexto, fontSize: 9),
+        );
+      },
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color: borda),
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.035),
+              blurRadius: 8,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // HORÁRIO E STATUS
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  horario,
+                  style: const TextStyle(
+                    color: azulEscuro,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 8),
-
-          // TIPO E DETALHES
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Text(
-                  tipo,
-                  style: const TextStyle(color: azulTexto, fontSize: 9),
-                ),
-              ),
-
-              InkWell(
-                onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        'Detalhes de $familia serão implementados depois.',
-                      ),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 9,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFE4F5EF),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Text(
+                    'Confirmada',
+                    style: TextStyle(
+                      color: verde,
+                      fontSize: 8,
+                      fontWeight: FontWeight.w600,
                     ),
-                  );
-                },
-                child: const Row(
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 8),
+
+            // NOME DA FAMÍLIA
+            Text(
+              familia,
+              style: const TextStyle(
+                color: azulEscuro,
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            const SizedBox(height: 5),
+
+            // ENDEREÇO
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Icon(
+                  Icons.location_on_outlined,
+                  color: azulTexto,
+                  size: 13,
+                ),
+                const SizedBox(width: 3),
+                Expanded(
+                  child: Text(
+                    endereco,
+                    style: const TextStyle(color: azulTexto, fontSize: 9),
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 8),
+
+            // TIPO E DETALHES
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    tipo,
+                    style: const TextStyle(color: azulTexto, fontSize: 9),
+                  ),
+                ),
+                const Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
@@ -449,10 +453,10 @@ class _CartaoVisita extends StatelessWidget {
                     Icon(Icons.chevron_right, color: verde, size: 17),
                   ],
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
