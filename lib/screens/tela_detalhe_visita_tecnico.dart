@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'tela_nova_visita.dart';
-
-import 'tela_informacoes_visita.dart';
+import 'tela_observacoes.dart';
 
 class TelaDetalhesFamilia extends StatelessWidget {
   final String nome;
@@ -202,18 +200,10 @@ class TelaDetalhesFamilia extends StatelessWidget {
                       height: 44,
                       child: ElevatedButton(
                         onPressed: () {
-                          final Widget destino = modoTecnico
-                              ? TelaInformacoesVisita(
-                                  nomeFamilia: nome,
-                                  enderecoFamilia: endereco,
-                                )
-                              : TelaNovaVisita(
-                                  nomeFamilia: nome,
-                                  enderecoFamilia: endereco,
-                                );
-
                           Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => destino),
+                            MaterialPageRoute(
+                              builder: (context) => const TelaObservacoes(),
+                            ),
                           );
                         },
                         style: ElevatedButton.styleFrom(

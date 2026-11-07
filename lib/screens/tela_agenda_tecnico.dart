@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'tela_nova_visita.dart';
 
-import 'tela_detalhe_visita_tecnico.dart';
+import 'tela_informacoes_tecnico.dart';
 
 const Color verde = Color(0xFF008577);
 const Color azulEscuro = Color(0xFF142A40);
@@ -335,10 +335,9 @@ class _CartaoVisita extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => TelaDetalhesFamilia(
-              nome: familia,
-              endereco: endereco,
-              modoTecnico: true,
+            builder: (context) => TelaInformacoesVisita(
+              nomeFamilia: familia,
+              enderecoFamilia: endereco,
             ),
           ),
         );

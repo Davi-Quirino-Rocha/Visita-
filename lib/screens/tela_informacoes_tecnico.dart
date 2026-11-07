@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'tela_detalhe_visita_tecnico.dart';
+
 const Color verdeVisita = Color(0xFF008577);
 const Color azulVisita = Color(0xFF142A40);
 const Color cinzaVisita = Color(0xFF647895);
@@ -79,7 +81,13 @@ class TelaInformacoesVisita extends StatelessWidget {
                       width: double.infinity,
                       height: 40,
                       child: ElevatedButton(
-                        onPressed: aoIniciarVisita,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const TelaDetalhesFamilia(),
+                            ),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: verdeVisita,
                           foregroundColor: Colors.white,
