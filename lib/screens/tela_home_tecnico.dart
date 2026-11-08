@@ -567,9 +567,8 @@ class _MenuTecnico extends StatelessWidget {
   const _MenuTecnico({
     required this.icone,
     required this.titulo,
-    this.selecionado = false,
     required this.aoTocar,
-  });
+  }) : selecionado = false;
 
   @override
   Widget build(BuildContext context) {

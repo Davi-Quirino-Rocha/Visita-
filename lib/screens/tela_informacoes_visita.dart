@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'tela_historico_visitas.dart';
 
+import 'tela_resultado_visita.dart';
+
 class TelaInformacoesVisita extends StatelessWidget {
   final String nomeFamilia;
   final String enderecoFamilia;
@@ -147,8 +149,14 @@ class TelaInformacoesVisita extends StatelessWidget {
                             width: double.infinity,
                             height: 36,
                             child: ElevatedButton(
-                              onPressed: () =>
-                                  _mensagem(context, 'Resumo da última visita'),
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const TelaResultadoVisita(),
+                                  ),
+                                );
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.white,
                                 foregroundColor: azulEscuro,

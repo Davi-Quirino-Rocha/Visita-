@@ -200,7 +200,7 @@ class _TelaObservacoesState extends State<TelaObservacoes> {
                         border: Border.all(color: const Color(0xFFF0F3F6)),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.035),
+                            color: Colors.black.withValues(alpha: 0.035),
                             blurRadius: 10,
                             offset: const Offset(0, 3),
                           ),
@@ -469,7 +469,9 @@ class _TelaObservacoesState extends State<TelaObservacoes> {
               height: 54,
               decoration: BoxDecoration(
                 color: Colors.white,
-                border: Border(top: BorderSide(color: borda.withOpacity(0.6))),
+                border: Border(
+                  top: BorderSide(color: borda.withValues(alpha: 0.6)),
+                ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
