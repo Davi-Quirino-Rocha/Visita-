@@ -300,7 +300,6 @@ class TelaInformacoesVisita extends StatelessWidget {
                 selecionado: true,
               ),
               _ItemNavegacao(icone: Icons.groups_outlined, titulo: 'Equipe'),
-              _ItemNavegacao(icone: Icons.more_horiz, titulo: 'Mais'),
             ],
           ),
         ),

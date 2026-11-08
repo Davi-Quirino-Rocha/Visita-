@@ -432,7 +432,6 @@ class _TelaNovaVisitaState extends State<TelaNovaVisita> {
                     icone: Icons.people_outline,
                     titulo: 'Famílias',
                   ),
-                  _ItemInferior(icone: Icons.more_horiz, titulo: 'Mais'),
                 ],
               ),
             ),

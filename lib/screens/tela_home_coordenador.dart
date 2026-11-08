@@ -270,11 +270,6 @@ class TelaHomeCoordenador extends StatelessWidget {
                       );
                     },
                   ),
-                  _ItemMenuHome(
-                    icone: Icons.more_horiz,
-                    titulo: 'Mais',
-                    aoTocar: () => _mensagem(context, 'Mais opções'),
-                  ),
                 ],
               ),
             ),

@@ -271,7 +271,6 @@ class TelaPerfilCoordenador extends StatelessWidget {
                   _ItemMenu(Icons.calendar_month_outlined, 'Agenda', false),
                   _ItemMenu(Icons.people_outline, 'Famílias', false),
                   _ItemMenu(Icons.groups_outlined, 'Equipe', false),
-                  _ItemMenu(Icons.more_horiz, 'Mais', true),
                 ],
               ),
             ),

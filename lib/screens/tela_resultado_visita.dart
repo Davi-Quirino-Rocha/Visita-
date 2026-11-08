@@ -261,7 +261,6 @@ class TelaResultadoVisita extends StatelessWidget {
               _ItemResultado(Icons.calendar_month_outlined, 'Agenda'),
               _ItemResultado(Icons.assignment_outlined, 'Visitas', true),
               _ItemResultado(Icons.people_outline, 'Famílias'),
-              _ItemResultado(Icons.more_horiz, 'Mais'),
             ],
           ),
         ),

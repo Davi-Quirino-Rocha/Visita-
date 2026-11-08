@@ -359,11 +359,6 @@ class _TelaEquipeState extends State<TelaEquipe> {
                     selecionado: true,
                     aoTocar: () {},
                   ),
-                  _ItemMenuEquipe(
-                    icone: Icons.more_horiz,
-                    titulo: 'Mais',
-                    aoTocar: () => _mensagem(context, 'Mais opções'),
-                  ),
                 ],
               ),
             ),

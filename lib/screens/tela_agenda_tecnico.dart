@@ -230,7 +230,6 @@ class TelaAgendaTecnico extends StatelessWidget {
                   ),
                   _ItemMenu(icone: Icons.people_outline, texto: 'Famílias'),
                   _ItemMenu(icone: Icons.groups_outlined, texto: 'Equipe'),
-                  _ItemMenu(icone: Icons.more_horiz, texto: 'Mais'),
                 ],
               ),
             ),

@@ -133,11 +133,6 @@ class TelaAgendaEquipe extends StatelessWidget {
                     titulo: 'Equipe',
                     aoTocar: () => _mensagem(context, 'Equipe'),
                   ),
-                  _ItemMenuAgenda(
-                    icone: Icons.more_horiz,
-                    titulo: 'Mais',
-                    aoTocar: () => _mensagem(context, 'Mais opções'),
-                  ),
                 ],
               ),
             ),

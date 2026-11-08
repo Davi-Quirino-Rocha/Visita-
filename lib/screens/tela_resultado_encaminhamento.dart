@@ -340,7 +340,6 @@ class TelaResultadoEncaminhamento extends StatelessWidget {
               _ItemEncaminhamento(Icons.calendar_month_outlined, 'Agenda'),
               _ItemEncaminhamento(Icons.assignment_outlined, 'Visitas', true),
               _ItemEncaminhamento(Icons.people_outline, 'Famílias'),
-              _ItemEncaminhamento(Icons.more_horiz, 'Mais'),
             ],
           ),
         ),

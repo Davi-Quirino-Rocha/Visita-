@@ -333,11 +333,6 @@ class TelaHomeTecnico extends StatelessWidget {
                     titulo: 'Equipe',
                     aoTocar: () => _mensagem(context, 'Equipe'),
                   ),
-                  _MenuTecnico(
-                    icone: Icons.more_horiz,
-                    titulo: 'Mais',
-                    aoTocar: () => _mensagem(context, 'Mais opções'),
-                  ),
                 ],
               ),
             ),

@@ -480,7 +480,6 @@ class _TelaObservacoesState extends State<TelaObservacoes> {
                   _itemMenu(Icons.calendar_month_outlined, 'Agenda', false),
                   _itemMenu(Icons.assignment_outlined, 'Visitas', true),
                   _itemMenu(Icons.people_outline, 'Famílias', false),
-                  _itemMenu(Icons.more_horiz, 'Mais', false),
                 ],
               ),
             ),

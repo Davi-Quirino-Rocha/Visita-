@@ -265,11 +265,6 @@ class _TelaHistoricoVisitasState extends State<TelaHistoricoVisitas> {
                     titulo: 'Equipe',
                     aoTocar: () => _mensagem(context, 'Equipe'),
                   ),
-                  _MenuHistorico(
-                    icone: Icons.more_horiz,
-                    titulo: 'Mais',
-                    aoTocar: () => _mensagem(context, 'Mais opções'),
-                  ),
                 ],
               ),
             ),
