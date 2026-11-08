@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'tela_novo_profissional.dart';
 
 import 'tela_agenda_equipe.dart';
+
 import 'tela_familias.dart';
 
 import 'tela_equipe.dart';
+
+import 'tela_nova_visita.dart';
 
 class TelaHomeCoordenador extends StatelessWidget {
   const TelaHomeCoordenador({super.key});
@@ -140,7 +143,11 @@ class TelaHomeCoordenador extends StatelessWidget {
                             titulo: 'Agendar visita',
                             descricao: 'Definir família, data e técnico',
                             aoTocar: () {
-                              _mensagem(context, 'Agendar visita');
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => const TelaNovaVisita(),
+                                ),
+                              );
                             },
                           ),
                         ),
@@ -276,12 +283,6 @@ class TelaHomeCoordenador extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  static void _mensagem(BuildContext context, String texto) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$texto: tela ainda em desenvolvimento.')),
     );
   }
 }

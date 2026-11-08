@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'tela_familias.dart';
 
+import 'tela_historico_visitas.dart';
+import 'tela_home_coordenador.dart';
+import 'tela_equipe.dart';
+
 class TelaAgendaEquipe extends StatelessWidget {
   const TelaAgendaEquipe({super.key});
 
@@ -67,13 +71,32 @@ class TelaAgendaEquipe extends StatelessWidget {
 
                     const SizedBox(height: 21),
 
-                    const Text(
-                      'Visitas de hoje',
-                      style: TextStyle(
-                        color: azulEscuro,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Visitas de hoje',
+                          style: TextStyle(
+                            color: azulEscuro,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const TelaHistoricoVisitas(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            'Ver todas',
+                            style: TextStyle(color: verde, fontSize: 10),
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 10),
 
@@ -109,13 +132,25 @@ class TelaAgendaEquipe extends StatelessWidget {
                   _ItemMenuAgenda(
                     icone: Icons.home_outlined,
                     titulo: 'Início',
-                    aoTocar: () => Navigator.of(context).pop(),
+                    aoTocar: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const TelaHomeCoordenador(),
+                        ),
+                      );
+                    },
                   ),
                   _ItemMenuAgenda(
                     icone: Icons.calendar_month_outlined,
                     titulo: 'Agenda',
                     selecionado: true,
-                    aoTocar: () {},
+                    aoTocar: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const TelaAgendaEquipe(),
+                        ),
+                      );
+                    },
                   ),
                   _ItemMenuAgenda(
                     icone: Icons.people_outline,
@@ -131,7 +166,13 @@ class TelaAgendaEquipe extends StatelessWidget {
                   _ItemMenuAgenda(
                     icone: Icons.groups_outlined,
                     titulo: 'Equipe',
-                    aoTocar: () => _mensagem(context, 'Equipe'),
+                    aoTocar: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const TelaEquipe(),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -139,12 +180,6 @@ class TelaAgendaEquipe extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  static void _mensagem(BuildContext context, String texto) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$texto: tela ainda em desenvolvimento.')),
     );
   }
 }

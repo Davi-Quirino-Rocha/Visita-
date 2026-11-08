@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:visita_mais/screens/tela_home_coordenador.dart';
 
 import 'tela_agenda_equipe.dart';
 
 import 'tela_detalhes_familia.dart';
 
 import 'tela_informacoes_visita.dart';
+
+import 'tela_equipe.dart';
 
 class TelaFamilias extends StatefulWidget {
   final bool modoTecnico;
@@ -202,7 +205,13 @@ class _TelaFamiliasState extends State<TelaFamilias> {
                   _ItemMenuFamilias(
                     icone: Icons.home_outlined,
                     titulo: 'Início',
-                    aoTocar: () => Navigator.of(context).pop(),
+                    aoTocar: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const TelaHomeCoordenador(),
+                        ),
+                      );
+                    },
                   ),
                   _ItemMenuFamilias(
                     icone: Icons.calendar_month_outlined,
@@ -224,7 +233,13 @@ class _TelaFamiliasState extends State<TelaFamilias> {
                   _ItemMenuFamilias(
                     icone: Icons.groups_outlined,
                     titulo: 'Equipe',
-                    aoTocar: () => _mensagem(context, 'Equipe'),
+                    aoTocar: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const TelaEquipe(),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -232,12 +247,6 @@ class _TelaFamiliasState extends State<TelaFamilias> {
           ],
         ),
       ),
-    );
-  }
-
-  void _mensagem(BuildContext context, String texto) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$texto: tela ainda em desenvolvimento.')),
     );
   }
 }

@@ -227,61 +227,9 @@ class TelaDetalhesFamilia extends StatelessWidget {
                 ),
               ),
             ),
-
-            // Barra inferior
-            Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                border: Border(top: BorderSide(color: borda)),
-              ),
-              padding: const EdgeInsets.fromLTRB(5, 7, 5, 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _ItemMenuDetalhes(
-                    icone: Icons.home_outlined,
-                    titulo: 'Início',
-                    aoTocar: () =>
-                        Navigator.of(context)
-                            .popUntil((route) => route.isFirst),
-                  ),
-                  _ItemMenuDetalhes(
-                    icone: Icons.calendar_month_outlined,
-                    titulo: 'Agenda',
-                    aoTocar: () {
-                      Navigator.of(context).popUntil((route) => route.isFirst);
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text(
-                            'Abra a Agenda pela barra inferior da Home.',
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                  _ItemMenuDetalhes(
-                    icone: Icons.people_outline,
-                    titulo: 'Famílias',
-                    selecionado: true,
-                    aoTocar: () => Navigator.of(context).pop(),
-                  ),
-                  _ItemMenuDetalhes(
-                    icone: Icons.groups_outlined,
-                    titulo: 'Equipe',
-                    aoTocar: () => _mensagem(context, 'Equipe'),
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       ),
-    );
-  }
-
-  static void _mensagem(BuildContext context, String texto) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$texto: tela ainda em desenvolvimento.')),
     );
   }
 }
