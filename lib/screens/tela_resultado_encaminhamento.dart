@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'tela_familias.dart';
+
 const Color verdeEncaminhamento = Color(0xFF008577);
 const Color azulEncaminhamento = Color(0xFF142A40);
 const Color cinzaEncaminhamento = Color(0xFF647895);
@@ -116,7 +118,15 @@ class TelaResultadoEncaminhamento extends StatelessWidget {
                       width: double.infinity,
                       height: 46,
                       child: ElevatedButton(
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TelaFamilias(),
+                            ),
+                            (route) => route.isFirst,
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: verdeEncaminhamento,
                           foregroundColor: Colors.white,
@@ -138,8 +148,6 @@ class TelaResultadoEncaminhamento extends StatelessWidget {
                 ),
               ),
             ),
-
-            _barraNavegacao(),
           ],
         ),
       ),
@@ -320,63 +328,6 @@ class TelaResultadoEncaminhamento extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _barraNavegacao() {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        border: Border(top: BorderSide(color: bordaEncaminhamento)),
-      ),
-      child: const SafeArea(
-        top: false,
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 9),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _ItemEncaminhamento(Icons.home_outlined, 'Início'),
-              _ItemEncaminhamento(Icons.calendar_month_outlined, 'Agenda'),
-              _ItemEncaminhamento(Icons.assignment_outlined, 'Visitas', true),
-              _ItemEncaminhamento(Icons.people_outline, 'Famílias'),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ItemEncaminhamento extends StatelessWidget {
-  final IconData icone;
-  final String titulo;
-  final bool selecionado;
-
-  const _ItemEncaminhamento(
-    this.icone,
-    this.titulo, [
-    this.selecionado = false,
-  ]);
-
-  @override
-  Widget build(BuildContext context) {
-    final cor = selecionado ? verdeEncaminhamento : cinzaEncaminhamento;
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icone, color: cor, size: 19),
-        const SizedBox(height: 3),
-        Text(
-          titulo,
-          style: TextStyle(
-            color: cor,
-            fontSize: 9,
-            fontWeight: selecionado ? FontWeight.bold : FontWeight.normal,
-          ),
-        ),
-      ],
     );
   }
 }

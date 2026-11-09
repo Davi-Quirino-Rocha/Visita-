@@ -111,8 +111,6 @@ class TelaResultadoVisita extends StatelessWidget {
                 ),
               ),
             ),
-
-            _barraNavegacao(),
           ],
         ),
       ),
@@ -241,59 +239,6 @@ class TelaResultadoVisita extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _barraNavegacao() {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        border: Border(top: BorderSide(color: bordaResultado)),
-      ),
-      child: const SafeArea(
-        top: false,
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _ItemResultado(Icons.home_outlined, 'Início'),
-              _ItemResultado(Icons.calendar_month_outlined, 'Agenda'),
-              _ItemResultado(Icons.assignment_outlined, 'Visitas', true),
-              _ItemResultado(Icons.people_outline, 'Famílias'),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ItemResultado extends StatelessWidget {
-  final IconData icone;
-  final String titulo;
-  final bool selecionado;
-
-  const _ItemResultado(this.icone, this.titulo, [this.selecionado = false]);
-
-  @override
-  Widget build(BuildContext context) {
-    final cor = selecionado ? verdeResultado : cinzaResultado;
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icone, color: cor, size: 19),
-        const SizedBox(height: 3),
-        Text(
-          titulo,
-          style: TextStyle(
-            color: cor,
-            fontSize: 9,
-            fontWeight: selecionado ? FontWeight.bold : FontWeight.normal,
-          ),
-        ),
-      ],
     );
   }
 }

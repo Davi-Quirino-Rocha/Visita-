@@ -4,6 +4,10 @@ import 'tela_novo_profissional.dart';
 
 import 'tela_perfil_coordenador.dart';
 
+import 'tela_agenda_equipe.dart';
+import 'tela_familias.dart';
+import 'tela_home_coordenador.dart';
+
 class TelaEquipe extends StatefulWidget {
   const TelaEquipe({super.key});
 
@@ -339,20 +343,37 @@ class _TelaEquipeState extends State<TelaEquipe> {
                   _ItemMenuEquipe(
                     icone: Icons.home_outlined,
                     titulo: 'Início',
-                    aoTocar: () =>
-                        Navigator.of(context)
-                            .popUntil((route) => route.isFirst),
+                    aoTocar: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const TelaHomeCoordenador(),
+                        ),
+                      );
+                    },
                   ),
+
                   _ItemMenuEquipe(
                     icone: Icons.calendar_month_outlined,
                     titulo: 'Agenda',
-                    aoTocar: () => _mensagem(context, 'Agenda'),
+                    aoTocar: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const TelaAgendaEquipe(),
+                        ),
+                      );
+                    },
                   ),
+
                   _ItemMenuEquipe(
                     icone: Icons.people_outline,
                     titulo: 'Famílias',
-                    aoTocar: () => _mensagem(context, 'Famílias'),
+                    aoTocar: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => TelaFamilias()),
+                      );
+                    },
                   ),
+
                   _ItemMenuEquipe(
                     icone: Icons.groups_outlined,
                     titulo: 'Equipe',
@@ -365,12 +386,6 @@ class _TelaEquipeState extends State<TelaEquipe> {
           ],
         ),
       ),
-    );
-  }
-
-  void _mensagem(BuildContext context, String texto) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$texto: tela ainda em desenvolvimento.')),
     );
   }
 }

@@ -4,6 +4,14 @@ import 'tela_historico_visitas.dart';
 
 import 'tela_resultado_visita.dart';
 
+import 'tela_equipe.dart';
+
+import 'tela_agenda_equipe.dart';
+
+import 'tela_familias.dart';
+
+import 'tela_home_coordenador.dart';
+
 class TelaInformacoesVisita extends StatelessWidget {
   final String nomeFamilia;
   final String enderecoFamilia;
@@ -343,25 +351,50 @@ class TelaInformacoesVisita extends StatelessWidget {
                   _ItemMenuVisita(
                     icone: Icons.home_outlined,
                     titulo: 'Início',
-                    aoTocar: () =>
-                        Navigator.of(context)
-                            .popUntil((route) => route.isFirst),
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TelaHomeCoordenador(),
+                        ),
+                      );
+                    },
                   ),
+
                   _ItemMenuVisita(
                     icone: Icons.calendar_month_outlined,
                     titulo: 'Agenda',
-                    aoTocar: () => _mensagem(context, 'Agenda'),
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TelaAgendaEquipe(),
+                        ),
+                      );
+                    },
                   ),
+
                   _ItemMenuVisita(
                     icone: Icons.people_outline,
                     titulo: 'Famílias',
                     selecionado: true,
-                    aoTocar: () => Navigator.of(context).pop(),
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TelaFamilias()),
+                      );
+                    },
                   ),
+
                   _ItemMenuVisita(
                     icone: Icons.groups_outlined,
                     titulo: 'Equipe',
-                    aoTocar: () => _mensagem(context, 'Equipe'),
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TelaEquipe()),
+                      );
+                    },
                   ),
                 ],
               ),

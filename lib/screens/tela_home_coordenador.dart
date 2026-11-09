@@ -10,6 +10,8 @@ import 'tela_equipe.dart';
 
 import 'tela_nova_visita.dart';
 
+import 'tela_detalhes_familia.dart';
+
 class TelaHomeCoordenador extends StatelessWidget {
   const TelaHomeCoordenador({super.key});
 
@@ -512,9 +514,10 @@ class _CardVisitaHome extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Detalhes de $familia em desenvolvimento.'),
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          TelaDetalhesFamilia(nome: familia, endereco: local),
                     ),
                   );
                 },

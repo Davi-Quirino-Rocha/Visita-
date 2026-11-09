@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'tela_agenda_equipe.dart';
+import 'tela_equipe.dart';
+import 'tela_familias.dart';
+import 'tela_home_coordenador.dart';
+
 class TelaHistoricoVisitas extends StatefulWidget {
   const TelaHistoricoVisitas({super.key});
 
@@ -245,25 +250,50 @@ class _TelaHistoricoVisitasState extends State<TelaHistoricoVisitas> {
                   _MenuHistorico(
                     icone: Icons.home_outlined,
                     titulo: 'Início',
-                    aoTocar: () =>
-                        Navigator.of(context)
-                            .popUntil((route) => route.isFirst),
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TelaHomeCoordenador(),
+                        ),
+                      );
+                    },
                   ),
+
                   _MenuHistorico(
                     icone: Icons.calendar_month_outlined,
                     titulo: 'Agenda',
-                    aoTocar: () => _mensagem(context, 'Agenda'),
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TelaAgendaEquipe(),
+                        ),
+                      );
+                    },
                   ),
+
                   _MenuHistorico(
                     icone: Icons.people_outline,
                     titulo: 'Famílias',
                     selecionado: true,
-                    aoTocar: () => Navigator.of(context).pop(),
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TelaFamilias()),
+                      );
+                    },
                   ),
+
                   _MenuHistorico(
                     icone: Icons.groups_outlined,
                     titulo: 'Equipe',
-                    aoTocar: () => _mensagem(context, 'Equipe'),
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TelaEquipe()),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -271,12 +301,6 @@ class _TelaHistoricoVisitasState extends State<TelaHistoricoVisitas> {
           ],
         ),
       ),
-    );
-  }
-
-  void _mensagem(BuildContext context, String texto) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$texto: tela ainda em desenvolvimento.')),
     );
   }
 }
