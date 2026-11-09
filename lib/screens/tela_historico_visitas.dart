@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'tela_agenda_equipe.dart';
-import 'tela_equipe.dart';
-import 'tela_familias.dart';
-import 'tela_home_coordenador.dart';
-
 class TelaHistoricoVisitas extends StatefulWidget {
   const TelaHistoricoVisitas({super.key});
 
@@ -236,68 +231,6 @@ class _TelaHistoricoVisitasState extends State<TelaHistoricoVisitas> {
                 ),
               ),
             ),
-
-            // Navegação inferior
-            Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                border: Border(top: BorderSide(color: borda)),
-              ),
-              padding: const EdgeInsets.fromLTRB(4, 7, 4, 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _MenuHistorico(
-                    icone: Icons.home_outlined,
-                    titulo: 'Início',
-                    aoTocar: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TelaHomeCoordenador(),
-                        ),
-                      );
-                    },
-                  ),
-
-                  _MenuHistorico(
-                    icone: Icons.calendar_month_outlined,
-                    titulo: 'Agenda',
-                    aoTocar: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TelaAgendaEquipe(),
-                        ),
-                      );
-                    },
-                  ),
-
-                  _MenuHistorico(
-                    icone: Icons.people_outline,
-                    titulo: 'Famílias',
-                    selecionado: true,
-                    aoTocar: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TelaFamilias()),
-                      );
-                    },
-                  ),
-
-                  _MenuHistorico(
-                    icone: Icons.groups_outlined,
-                    titulo: 'Equipe',
-                    aoTocar: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TelaEquipe()),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       ),
@@ -498,48 +431,6 @@ class _FiltroHistorico extends StatelessWidget {
             color: selecionado ? Colors.white : const Color(0xFF263746),
             fontSize: 9,
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _MenuHistorico extends StatelessWidget {
-  final IconData icone;
-  final String titulo;
-  final bool selecionado;
-  final VoidCallback aoTocar;
-
-  const _MenuHistorico({
-    required this.icone,
-    required this.titulo,
-    this.selecionado = false,
-    required this.aoTocar,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final cor = selecionado ? const Color(0xFF008577) : const Color(0xFF647895);
-
-    return InkWell(
-      onTap: aoTocar,
-      borderRadius: BorderRadius.circular(8),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icone, color: cor, size: 17),
-            const SizedBox(height: 3),
-            Text(
-              titulo,
-              style: TextStyle(
-                color: cor,
-                fontSize: 8,
-                fontWeight: selecionado ? FontWeight.w600 : FontWeight.normal,
-              ),
-            ),
-          ],
         ),
       ),
     );

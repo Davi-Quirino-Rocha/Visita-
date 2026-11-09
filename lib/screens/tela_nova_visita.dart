@@ -407,34 +407,6 @@ class _TelaNovaVisitaState extends State<TelaNovaVisita> {
                 ),
               ),
             ),
-
-            // MENU INFERIOR
-            Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                border: Border(top: BorderSide(color: bordaVisita)),
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _ItemInferior(icone: Icons.home_outlined, titulo: 'Início'),
-                  _ItemInferior(
-                    icone: Icons.calendar_month_outlined,
-                    titulo: 'Agenda',
-                  ),
-                  _ItemInferior(
-                    icone: Icons.assignment_outlined,
-                    titulo: 'Visitas',
-                    selecionado: true,
-                  ),
-                  _ItemInferior(
-                    icone: Icons.people_outline,
-                    titulo: 'Famílias',
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       ),
@@ -599,39 +571,6 @@ class _OpcaoVisita extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class _ItemInferior extends StatelessWidget {
-  final IconData icone;
-  final String titulo;
-  final bool selecionado;
-
-  const _ItemInferior({
-    required this.icone,
-    required this.titulo,
-    this.selecionado = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final cor = selecionado ? verdeVisita : cinzaVisita;
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icone, color: cor, size: 17),
-        const SizedBox(height: 3),
-        Text(
-          titulo,
-          style: TextStyle(
-            color: cor,
-            fontSize: 8,
-            fontWeight: selecionado ? FontWeight.bold : FontWeight.normal,
-          ),
-        ),
-      ],
     );
   }
 }

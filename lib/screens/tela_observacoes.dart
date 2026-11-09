@@ -463,51 +463,9 @@ class _TelaObservacoesState extends State<TelaObservacoes> {
                 ),
               ),
             ),
-
-            // Menu inferior
-            Container(
-              height: 54,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border(
-                  top: BorderSide(color: borda.withValues(alpha: 0.6)),
-                ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _itemMenu(Icons.home_outlined, 'Início', false),
-                  _itemMenu(Icons.calendar_month_outlined, 'Agenda', false),
-                  _itemMenu(Icons.assignment_outlined, 'Visitas', true),
-                  _itemMenu(Icons.people_outline, 'Famílias', false),
-                ],
-              ),
-            ),
           ],
         ),
       ),
-    );
-  }
-
-  Widget _itemMenu(IconData icone, String texto, bool selecionado) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          icone,
-          size: 17,
-          color: selecionado ? verde : const Color(0xFF91A4BD),
-        ),
-        const SizedBox(height: 3),
-        Text(
-          texto,
-          style: TextStyle(
-            fontSize: 8,
-            color: selecionado ? verde : const Color(0xFF91A4BD),
-            fontWeight: selecionado ? FontWeight.bold : FontWeight.normal,
-          ),
-        ),
-      ],
     );
   }
 }

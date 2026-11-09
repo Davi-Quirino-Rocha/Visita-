@@ -4,6 +4,12 @@ import 'tela_nova_visita.dart';
 
 import 'tela_informacoes_tecnico.dart';
 
+import 'tela_familias.tecnico.dart';
+
+import 'tela_equipe.dart';
+
+import 'tela_home_tecnico.dart';
+
 const Color verde = Color(0xFF008577);
 const Color azulEscuro = Color(0xFF142A40);
 const Color azulTexto = Color(0xFF647895);
@@ -218,18 +224,58 @@ class TelaAgendaTecnico extends StatelessWidget {
                 color: Colors.white,
                 border: Border(top: BorderSide(color: borda)),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 9),
-              child: const Row(
+              padding: const EdgeInsets.fromLTRB(5, 7, 5, 5),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  _ItemMenu(icone: Icons.home_outlined, texto: 'Início'),
+                  _ItemMenu(
+                    icone: Icons.home_outlined,
+                    texto: 'Início',
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TelaHomeTecnico(),
+                        ),
+                      );
+                    },
+                  ),
+
                   _ItemMenu(
                     icone: Icons.calendar_month_outlined,
                     texto: 'Agenda',
                     selecionado: true,
+                    aoTocar: () {
+                      // Já está na tela Agenda.
+                    },
                   ),
-                  _ItemMenu(icone: Icons.people_outline, texto: 'Famílias'),
-                  _ItemMenu(icone: Icons.groups_outlined, texto: 'Equipe'),
+
+                  _ItemMenu(
+                    icone: Icons.people_outline,
+                    texto: 'Famílias',
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const TelaFamilias(modoTecnico: true),
+                        ),
+                      );
+                    },
+                  ),
+
+                  _ItemMenu(
+                    icone: Icons.groups_outlined,
+                    texto: 'Equipe',
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TelaEquipe(),
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
             ),
@@ -466,10 +512,12 @@ class _ItemMenu extends StatelessWidget {
   final IconData icone;
   final String texto;
   final bool selecionado;
+  final VoidCallback aoTocar;
 
   const _ItemMenu({
     required this.icone,
     required this.texto,
+    required this.aoTocar,
     this.selecionado = false,
   });
 
@@ -477,22 +525,27 @@ class _ItemMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final cor = selecionado ? verde : azulTexto;
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icone, color: cor, size: 19),
-
-        const SizedBox(height: 4),
-
-        Text(
-          texto,
-          style: TextStyle(
-            color: cor,
-            fontSize: 9,
-            fontWeight: selecionado ? FontWeight.bold : FontWeight.normal,
-          ),
+    return InkWell(
+      onTap: aoTocar,
+      borderRadius: BorderRadius.circular(10),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 3),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icone, color: cor, size: 19),
+            const SizedBox(height: 4),
+            Text(
+              texto,
+              style: TextStyle(
+                color: cor,
+                fontSize: 9,
+                fontWeight: selecionado ? FontWeight.bold : FontWeight.normal,
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

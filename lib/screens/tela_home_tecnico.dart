@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:visita_mais/screens/tela_equipe.dart';
 
 import 'tela_perfil_coordenador.dart';
 
 import 'tela_agenda_tecnico.dart';
 
-import 'tela_familias.dart';
+import 'tela_familias.tecnico.dart';
+
+import 'tela_informacoes_tecnico.dart';
 
 class TelaHomeTecnico extends StatelessWidget {
   const TelaHomeTecnico({super.key});
@@ -177,10 +180,15 @@ class TelaHomeTecnico extends StatelessWidget {
                             width: double.infinity,
                             height: 36,
                             child: ElevatedButton(
-                              onPressed: () => _mensagem(
-                                context,
-                                'Visita atribuída à Família Oliveira',
-                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const TelaInformacoesVisita(),
+                                  ),
+                                );
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.white,
                                 foregroundColor: azulEscuro,
@@ -299,17 +307,9 @@ class TelaHomeTecnico extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   _MenuTecnico(
-                    icone: Icons.people_outline,
-                    titulo: 'Famílias',
-                    aoTocar: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const TelaFamilias(modoTecnico: true),
-                        ),
-                      );
-                    },
+                    icone: Icons.home_outlined,
+                    titulo: 'Início',
+                    aoTocar: () {},
                   ),
                   _MenuTecnico(
                     icone: Icons.calendar_month_outlined,
@@ -326,12 +326,26 @@ class TelaHomeTecnico extends StatelessWidget {
                   _MenuTecnico(
                     icone: Icons.people_outline,
                     titulo: 'Famílias',
-                    aoTocar: () => _mensagem(context, 'Famílias'),
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TelaFamilias(),
+                        ),
+                      );
+                    },
                   ),
                   _MenuTecnico(
                     icone: Icons.groups_outlined,
                     titulo: 'Equipe',
-                    aoTocar: () => _mensagem(context, 'Equipe'),
+                    aoTocar: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TelaEquipe(),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -440,8 +454,14 @@ class _VisitaTecnico extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
         onTap: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Detalhes de $familia em desenvolvimento.')),
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => TelaInformacoesVisita(
+                nomeFamilia: familia,
+                enderecoFamilia: local,
+              ),
+            ),
           );
         },
         borderRadius: BorderRadius.circular(12),
